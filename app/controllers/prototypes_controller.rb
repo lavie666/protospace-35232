@@ -55,7 +55,7 @@ before_action :move_to_index, except: [:index, :new, :create, :show, :update, :d
 
   def move_to_index
     @prototype = Prototype.find(params[:id])
-    unless current_user.id == @prototype.user
+    unless current_user.id == @prototype.user.id
       redirect_to action: :index
     end  
   end
